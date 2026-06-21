@@ -12,7 +12,7 @@
 // ==WindhawkModReadme==
 /*
 # Windows Thumbnails Tweaker
-This mod provide several styles of folder thumbnails tweaks to Windows, feel free to raise an issue.
+This mod provides several styles of folder thumbnails tweaks to Windows, feel free to raise an issue.
 
 Tested on Windows 10 22H2, Windows 11 22H2, 23H2, 24H2, 25H2
 
