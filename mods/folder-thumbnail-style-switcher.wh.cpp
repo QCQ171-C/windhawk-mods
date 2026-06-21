@@ -1,12 +1,12 @@
 // ==WindhawkMod==
-// @id              folder-thumbnail-tweaker
+// @id              folder-thumbnail-style-switcher
 // @name            Windows Thumbnails Tweaker
 // @description     Switches Explorer folder thumbnail composition between Windows 7, Windows 10, and Windows 11 styles.
 // @version         1.0
 // @author          QCQ171-C
 // @github         https://github.com/QCQ171-C
 // @include         explorer.exe
-// @compilerOptions -lgdi32 -lmsimg32 -luser32 -lshlwapi -lole32 -lcomctl32 -lwindowscodecs
+// @compilerOptions -lgdi32 -lmsimg32 -luser32 -lshlwapi -lole32 -lcomctl32 -lwindowscodecs -fms-extensions
 // ==/WindhawkMod==
 
 // ==WindhawkModReadme==
@@ -82,6 +82,7 @@ I try my best to closely replicates the thumbnail drawing logic of Windows 10 on
 // ==/WindhawkModSettings==
 
 #include <initguid.h>
+#include <intrin.h>
 #include <windhawk_utils.h>
 #include <windows.h>
 #include <commctrl.h>
@@ -1056,7 +1057,7 @@ static HRESULT __fastcall GetThumbnailsHook(void* pThis, BYTE count, void* dpa) 
     return g_getThumbnailsOrig(pThis, count, dpa);
 }
 
-static const WindhawkUtils::SYMBOL_HOOK kWin10Hooks[] = {
+static const WindhawkUtils::SYMBOL_HOOK win10hooks[] = {
     {
         {
             L"private: long __cdecl CFolderThumbnail::_SkewThumbnail(unsigned int,struct IShellItem *,struct HDC__ *,struct tagSIZE)"
@@ -1075,7 +1076,7 @@ static const WindhawkUtils::SYMBOL_HOOK kWin10Hooks[] = {
     },
 };
 
-static const WindhawkUtils::SYMBOL_HOOK kWin11Hooks[] = {
+static const WindhawkUtils::SYMBOL_HOOK win11hooks[] = {
     {
         {
             L"public: virtual long __cdecl CFolderThumbnail::Extract(struct HBITMAP__ * *)"
@@ -1117,7 +1118,7 @@ BOOL Wh_ModInit() {
     }
 
     if (g_hostVersion == HostVersion::Win11) {
-        if (!WindhawkUtils::HookSymbols(storage, kWin11Hooks, ARRAYSIZE(kWin11Hooks))) {
+        if (!WindhawkUtils::HookSymbols(storage, win11hooks, ARRAYSIZE(win11hooks))) {
             Log(L"Failed to resolve Win11 folder thumbnail symbols");
             return FALSE;
         }
@@ -1126,7 +1127,7 @@ BOOL Wh_ModInit() {
         return TRUE;
     }
 
-    if (!WindhawkUtils::HookSymbols(storage, kWin10Hooks, ARRAYSIZE(kWin10Hooks))) {
+    if (!WindhawkUtils::HookSymbols(storage, win10hooks, ARRAYSIZE(win10hooks))) {
         Log(L"Failed to resolve Win10 folder thumbnail symbols");
         return FALSE;
     }
