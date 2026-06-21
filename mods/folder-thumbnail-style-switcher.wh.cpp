@@ -19,31 +19,31 @@ Tested on Windows 10 22H2, Windows 11 22H2, 23H2, 24H2, 25H2
 You need to clean the thumbnail cache after changing a style.
 
 ## Gallery
-![Original Win 7 style](https://raw.githubusercontent.com/QCQ171-C/windhawk-mods/refs/heads/main/Gallery/folder-thumbnail-tweaker/7.PNG)
+![Original Win 7 style](https://raw.githubusercontent.com/QCQ171-C/mods-collection/refs/heads/main/Gallery/folder-thumbnail-tweaker/7.PNG)
 Original Win 7 style
 
 ------------
-![Original Win 10 style](https://raw.githubusercontent.com/QCQ171-C/windhawk-mods/refs/heads/main/Gallery/folder-thumbnail-tweaker/10.PNG)
+![Original Win 10 style](https://raw.githubusercontent.com/QCQ171-C/mods-collection/refs/heads/main/Gallery/folder-thumbnail-tweaker/10.PNG)
 Original Win 10 style
 
 ------------
-![Original Win 11 style](https://raw.githubusercontent.com/QCQ171-C/windhawk-mods/refs/heads/main/Gallery/folder-thumbnail-tweaker/11.png)
+![Original Win 11 style](https://raw.githubusercontent.com/QCQ171-C/mods-collection/refs/heads/main/Gallery/folder-thumbnail-tweaker/11.png)
 Original Win 11 style
 
 ------------
-![11 style on 10](https://raw.githubusercontent.com/QCQ171-C/windhawk-mods/refs/heads/main/Gallery/folder-thumbnail-tweaker/10-11.PNG)
+![11 style on 10](https://raw.githubusercontent.com/QCQ171-C/mods-collection/refs/heads/main/Gallery/folder-thumbnail-tweaker/10-11.PNG)
 11 style on 10
 
 ------------
-![7 style on 10](https://raw.githubusercontent.com/QCQ171-C/windhawk-mods/refs/heads/main/Gallery/folder-thumbnail-tweaker/10-7.PNG)
+![7 style on 10](https://raw.githubusercontent.com/QCQ171-C/mods-collection/refs/heads/main/Gallery/folder-thumbnail-tweaker/10-7.PNG)
 7 style on 10
 
 ------------
-![10 style on 11](https://raw.githubusercontent.com/QCQ171-C/windhawk-mods/refs/heads/main/Gallery/folder-thumbnail-tweaker/11-10.png)
+![10 style on 11](https://raw.githubusercontent.com/QCQ171-C/mods-collection/refs/heads/main/Gallery/folder-thumbnail-tweaker/11-10.png)
 10 style on 11
 
 ------------
-![7 style on 11](https://raw.githubusercontent.com/QCQ171-C/windhawk-mods/refs/heads/main/Gallery/folder-thumbnail-tweaker/11-7.png)
+![7 style on 11](https://raw.githubusercontent.com/QCQ171-C/mods-collection/refs/heads/main/Gallery/folder-thumbnail-tweaker/11-7.png)
 7 style on 11
 
 ## Notes
