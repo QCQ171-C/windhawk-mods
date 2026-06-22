@@ -83,7 +83,14 @@ I try my best to closely replicates the thumbnail drawing logic of Windows 10 on
 
 #include <initguid.h>
 #include <intrin.h>
+
+// Compatible with Windhawk 1.6.1 and before
+#undef WINAPI
+#define WINAPI __attribute__((stdcall))
 #include <windhawk_utils.h>
+#undef WINAPI
+#define WINAPI __stdcall
+
 #include <windows.h>
 #include <commctrl.h>
 #include <shlobj.h>
@@ -1057,7 +1064,8 @@ static HRESULT __fastcall GetThumbnailsHook(void* pThis, BYTE count, void* dpa) 
     return g_getThumbnailsOrig(pThis, count, dpa);
 }
 
-static const WindhawkUtils::SYMBOL_HOOK win10hooks[] = {
+// windows.storage.dll
+static const WindhawkUtils::SYMBOL_HOOK storageHooks10[] = {
     {
         {
             L"private: long __cdecl CFolderThumbnail::_SkewThumbnail(unsigned int,struct IShellItem *,struct HDC__ *,struct tagSIZE)"
@@ -1076,7 +1084,8 @@ static const WindhawkUtils::SYMBOL_HOOK win10hooks[] = {
     },
 };
 
-static const WindhawkUtils::SYMBOL_HOOK win11hooks[] = {
+// windows.storage.dll
+static const WindhawkUtils::SYMBOL_HOOK storageHooks11[] = {
     {
         {
             L"public: virtual long __cdecl CFolderThumbnail::Extract(struct HBITMAP__ * *)"
@@ -1118,7 +1127,7 @@ BOOL Wh_ModInit() {
     }
 
     if (g_hostVersion == HostVersion::Win11) {
-        if (!WindhawkUtils::HookSymbols(storage, win11hooks, ARRAYSIZE(win11hooks))) {
+        if (!WindhawkUtils::HookSymbols(storage, storageHooks11, ARRAYSIZE(storageHooks11))) {
             Log(L"Failed to resolve Win11 folder thumbnail symbols");
             return FALSE;
         }
@@ -1127,7 +1136,7 @@ BOOL Wh_ModInit() {
         return TRUE;
     }
 
-    if (!WindhawkUtils::HookSymbols(storage, win10hooks, ARRAYSIZE(win10hooks))) {
+    if (!WindhawkUtils::HookSymbols(storage, storageHooks10, ARRAYSIZE(storageHooks10))) {
         Log(L"Failed to resolve Win10 folder thumbnail symbols");
         return FALSE;
     }
